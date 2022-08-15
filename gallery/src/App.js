@@ -15,18 +15,19 @@ class App extends Component {
 
   componentDidMount(){
     //fetch("https://random.dog/woof.json")
-    fetch("https://dog.ceo/api/breeds/image/random/10")
+    fetch("https://dog.ceo/api/breeds/image/random/6")
     .then((res)=> res.json())
     .then((data)=>{
-      //console.log(data);
-      this.setState({dogs: data.url})
+      console.log(data);
+      //this.setState({dogs: data.url})
+      this.setState({dogs: data.message})
     })
   }
 
   render(){
     return (
       <div className="App">    
-     <h1 style={{textAlign: 'center'}}>Hellow Joe</h1>
+     <h1 style={{textAlign: 'center'}}>Dogs</h1>
      <DogList dogs={this.state.dogs} />
     </div>
   );
